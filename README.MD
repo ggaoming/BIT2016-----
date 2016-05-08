@@ -14,13 +14,10 @@
 ##examples
 run:
 
-'''
 python run.py
-'''
 
 input file:
 
-'''
 0, 51, 94, 11, 56
 
 51, 0, 71, 55, 82
@@ -31,13 +28,8 @@ input file:
 
 56, 82, 97, 61, 0
 
-'''
 
 output:
-'''
-
 min value: 360
-
 process ((0, (1, 2)), 3):360
 
-'''
