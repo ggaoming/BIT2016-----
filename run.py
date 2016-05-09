@@ -71,7 +71,7 @@ def calculate(n=5):
         for start in range(0, n-step):  # 计算不同间距的最优值
             if step == 1:  # 距离为1时直接赋值
                 value_map[start][start+step] = data[start][start+step]
-                process[start][start+step] = start
+                process[start][start+step] = (start, start+step)
             else:
                 min_val = -1  # 最短分割点获得的值
                 min_process = None  # 最短分割点的操作
@@ -79,6 +79,10 @@ def calculate(n=5):
                 for i in range(1, step):  # 距离大于1时选取最短的分割点
                     value = value_map[start][start+i]+value_map[start+i][start+step]\
                      + data[start][start+step]
+                    if i > 1:
+                         value += value + data[start][start+i]
+                    if step - i > 1:
+                        value += value + data[start+i][start+step]
                     if min_val == -1 or min_val > value:
                         min_val = value
                         min_process = (process[start][start+i], process[start+i][start+step])
